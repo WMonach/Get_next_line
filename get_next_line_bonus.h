@@ -6,12 +6,13 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 15:10:35 by wmonacho          #+#    #+#             */
-/*   Updated: 2021/11/19 13:50:35 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2021/11/19 15:50:19 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
+# define MAX_FD 10240
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
