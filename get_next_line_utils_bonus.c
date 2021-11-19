@@ -6,12 +6,12 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 16:34:12 by wmonacho          #+#    #+#             */
-/*   Updated: 2021/11/19 13:50:39 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2021/11/19 13:56:37 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_calloc(int elementCount, int elementSize)
 {

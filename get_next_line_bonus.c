@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 11:17:07 by wmonacho          #+#    #+#             */
-/*   Updated: 2021/11/19 19:20:43 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2021/11/19 19:53:52 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
+#include <limits.h>
 
 int	ft_real_strlen(char *str)
 {
@@ -108,14 +109,14 @@ static char	*ft_read(int fd, char **buffer)
 
 char	*get_next_line(int fd)
 {
-	static char		*buffer = 0;
+	static char		*buffer[OPEN_MAX];
 	char			*line;
 
-	line = ft_read(fd, &buffer);
+	line = ft_read(fd, &buffer[fd]);
 	if (!line)
 	{
-		free(buffer);
-		buffer = NULL;
+		free(buffer[fd]);
+		buffer[fd] = NULL;
 	}
 	return (line);
 }
