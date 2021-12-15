@@ -6,28 +6,55 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 16:34:12 by wmonacho          #+#    #+#             */
-/*   Updated: 2021/11/19 13:56:37 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2021/12/06 16:18:33 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "get_next_line_bonus.h"
 
-char	*ft_calloc(int elementCount, int elementSize)
+int	ft_strlenn(char *str)
 {
-	int			count;
-	char		*dest;
+	int	i;
+
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i] != '\n' && str[i] != '\0')
+		i++;
+	if (str[i] == '\n')
+		return (i + 1);
+	return (i);
+}
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+char	*ft_free(char *freestr)
+{
+	if (freestr)
+		free(freestr);
+	return (NULL);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	size_t	count;
 
 	count = 0;
-	dest = malloc(elementCount * elementSize);
-	if (dest == NULL)
-		return (NULL);
-	while (count < elementCount * elementSize)
+	while (count < n)
 	{
-		dest[count] = '\0';
+		((char *)s)[count] = '\0';
 		count++;
 	}
-	return (dest);
 }
 
 char	*ft_strchr(char *string, int searchedChar)
@@ -46,16 +73,4 @@ char	*ft_strchr(char *string, int searchedChar)
 	if (string[count] == (char)searchedChar)
 		return ((char *)string + count);
 	return (NULL);
-}
-
-int	ft_strlen(char *str, char c)
-{
-	int	i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i] != c)
-		i++;
-	return (i);
 }
